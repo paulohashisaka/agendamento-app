@@ -1,0 +1,76 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "minutes": "{{count}}分",
+    "cancelButton": "キャンセル",
+    "save": "保存",
+    "add": "追加",
+    "edit": "編集",
+    "delete": "削除",
+    "select": "選択してください"
+  },
+  "cliente": {
+    "title": "予約する",
+    "subtitle": "理容師、サービス、時間を選んでください。",
+    "errorLoading": "データの読み込みエラー: {{error}}"
+  },
+  "agendamento": {
+    "formTitle": "予約",
+    "barbeiroLabel": "理容師",
+    "qualquerBarbeiro": "どなたでも可",
+    "servicoLabel": "サービス",
+    "dataLabel": "日付",
+    "horarioLabel": "時間",
+    "loadingHorarios": "時間を読み込み中...",
+    "semHorarios": "この日は空き時間がありません。",
+    "nomeLabel": "お名前",
+    "telefoneLabel": "電話番号",
+    "confirmando": "確認中...",
+    "confirmar": "予約を確定する",
+    "confirmadoTitulo": "予約が確定しました!",
+    "confirmadoResumo": "{{servico}}(担当:{{barbeiro}})",
+    "confirmadoDataHora": "{{data}} {{hora}}",
+    "opcaoHorario": "{{hora}} · {{barbeiro}}"
+  },
+  "admin": {
+    "title": "理容師パネル",
+    "loading": "読み込み中...",
+    "logout": "ログアウト"
+  },
+  "login": {
+    "emailLabel": "メールアドレス",
+    "senhaLabel": "パスワード",
+    "entrando": "ログイン中...",
+    "entrar": "ログイン"
+  },
+  "servicos": {
+    "titulo": "サービス",
+    "placeholderNome": "名前",
+    "placeholderDuracao": "所要時間(分)",
+    "placeholderPreco": "料金(¥)",
+    "loading": "読み込み中..."
+  },
+  "gerarHorarios": {
+    "titulo": "時間を生成",
+    "gerando": "生成中...",
+    "gerar": "生成",
+    "sucesso": "時間の生成に成功しました。",
+    "erro": "エラー: {{mensagem}}"
+  },
+  "agenda": {
+    "titulo": "予約一覧",
+    "todosBarbeiros": "全ての理容師",
+    "loading": "読み込み中...",
+    "vazio": "この日の予約はありません。"
+  },
+  "erros": {
+    "horario_nao_encontrado": "時間が見つかりません",
+    "horario_indisponivel": "この時間は予約できません",
+    "antecedencia_minima": "予約は1時間前までにお願いします",
+    "agendamento_ja_cancelado": "予約が見つからないか、すでにキャンセルされています"
+  },
+  "whatsapp": {
+    "enviar": "WhatsAppで確認を送る",
+    "mensagem": "こんにちは!予約を確認します:{{servico}}(担当:{{barbeiro}})、{{data}} {{hora}}。お名前:{{nome}}。電話番号:{{telefone}}。"
+  }
+}

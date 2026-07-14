@@ -1,0 +1,76 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "minutes": "{{count}} min",
+    "cancelButton": "Cancelar",
+    "save": "Salvar",
+    "add": "Adicionar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "select": "Selecione"
+  },
+  "cliente": {
+    "title": "Agendar horário",
+    "subtitle": "Escolha o barbeiro, o serviço e o horário.",
+    "errorLoading": "Erro ao carregar dados: {{error}}"
+  },
+  "agendamento": {
+    "formTitle": "Agendar",
+    "barbeiroLabel": "Barbeiro",
+    "qualquerBarbeiro": "Qualquer disponível",
+    "servicoLabel": "Serviço",
+    "dataLabel": "Data",
+    "horarioLabel": "Horário",
+    "loadingHorarios": "Carregando horários...",
+    "semHorarios": "Nenhum horário disponível nessa data.",
+    "nomeLabel": "Nome",
+    "telefoneLabel": "Telefone",
+    "confirmando": "Confirmando...",
+    "confirmar": "Confirmar agendamento",
+    "confirmadoTitulo": "Agendamento confirmado!",
+    "confirmadoResumo": "{{servico}} com {{barbeiro}}",
+    "confirmadoDataHora": "{{data}} às {{hora}}",
+    "opcaoHorario": "{{hora}} · {{barbeiro}}"
+  },
+  "admin": {
+    "title": "Painel do barbeiro",
+    "loading": "Carregando...",
+    "logout": "Sair"
+  },
+  "login": {
+    "emailLabel": "E-mail",
+    "senhaLabel": "Senha",
+    "entrando": "Entrando...",
+    "entrar": "Entrar"
+  },
+  "servicos": {
+    "titulo": "Serviços",
+    "placeholderNome": "Nome",
+    "placeholderDuracao": "Duração (min)",
+    "placeholderPreco": "Preço (¥)",
+    "loading": "Carregando..."
+  },
+  "gerarHorarios": {
+    "titulo": "Gerar horários",
+    "gerando": "Gerando...",
+    "gerar": "Gerar",
+    "sucesso": "Horários gerados com sucesso.",
+    "erro": "Erro: {{mensagem}}"
+  },
+  "agenda": {
+    "titulo": "Agenda",
+    "todosBarbeiros": "Todos os barbeiros",
+    "loading": "Carregando...",
+    "vazio": "Nenhum agendamento nessa data."
+  },
+  "erros": {
+    "horario_nao_encontrado": "Horário não encontrado",
+    "horario_indisponivel": "Horário indisponível",
+    "antecedencia_minima": "Agendamento precisa de pelo menos 1 hora de antecedência",
+    "agendamento_ja_cancelado": "Agendamento não encontrado ou já cancelado"
+  },
+  "whatsapp": {
+    "enviar": "Enviar confirmação via WhatsApp",
+    "mensagem": "Olá! Confirmo meu agendamento: {{servico}} com {{barbeiro}}, em {{data}} às {{hora}}. Nome: {{nome}}. Telefone: {{telefone}}."
+  }
+}
