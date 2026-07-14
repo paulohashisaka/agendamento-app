@@ -20,6 +20,6 @@ i18n.use(initReactI18next).init({
 })
 
 document.documentElement.lang = idiomaInicial
-document.title = idiomaInicial === 'ja-JP' ? 'バーバーショップ - 予約' : 'Barbearia - Agendamento'
+document.title = idiomaInicial === 'ja-JP' ? '予約' : 'Agendamento'
 
 export default i18n
