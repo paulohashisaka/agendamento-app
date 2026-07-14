@@ -27,3 +27,6 @@ dist-ssr
 # Notas locais com credenciais / config local da ferramenta
 *.rtf
 .claude/settings.local.json
+
+# Local Netlify folder
+.netlify
