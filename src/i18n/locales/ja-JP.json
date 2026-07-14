@@ -9,6 +9,13 @@
     "delete": "削除",
     "select": "選択してください"
   },
+  "header": {
+    "logoAlt": "理容室のロゴ",
+    "menuLabel": "メニューを開く",
+    "agendar": "予約する",
+    "servicos": "サービス一覧",
+    "admin": "理容師エリア"
+  },
   "cliente": {
     "title": "予約する",
     "subtitle": "理容師、サービス、時間を選んでください。",

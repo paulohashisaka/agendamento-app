@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useSession } from '../../hooks/useSession'
 import { signOut } from '../../lib/auth'
 import { listBarbeiros } from '../../lib/barbeiros'
+import Header from '../../components/Header'
 import LoginForm from './LoginForm'
 import ServicosManager from './ServicosManager'
 import GerarHorarios from './GerarHorarios'
@@ -19,9 +20,12 @@ function AdminPage() {
 
   if (session === undefined) {
     return (
-      <main className="page page-admin">
-        <p>{t('admin.loading')}</p>
-      </main>
+      <>
+        <Header />
+        <main className="page page-admin">
+          <p>{t('admin.loading')}</p>
+        </main>
+      </>
     )
   }
 
@@ -30,18 +34,21 @@ function AdminPage() {
   }
 
   return (
-    <main className="page page-admin">
-      <header className="admin-header">
-        <h1>{t('admin.title')}</h1>
-        <button type="button" onClick={() => signOut()}>
-          {t('admin.logout')}
-        </button>
-      </header>
+    <>
+      <Header />
+      <main className="page page-admin">
+        <header className="admin-header">
+          <h1>{t('admin.title')}</h1>
+          <button type="button" onClick={() => signOut()}>
+            {t('admin.logout')}
+          </button>
+        </header>
 
-      <Agenda barbeiros={barbeiros} />
-      <GerarHorarios barbeiros={barbeiros} />
-      <ServicosManager />
-    </main>
+        <Agenda barbeiros={barbeiros} />
+        <GerarHorarios barbeiros={barbeiros} />
+        <ServicosManager />
+      </main>
+    </>
   )
 }
 

@@ -9,6 +9,13 @@
     "delete": "Excluir",
     "select": "Selecione"
   },
+  "header": {
+    "logoAlt": "Logotipo da barbearia",
+    "menuLabel": "Abrir menu",
+    "agendar": "Agende seu horário",
+    "servicos": "Nossos Serviços",
+    "admin": "Área do Barbeiro"
+  },
   "cliente": {
     "title": "Agendar horário",
     "subtitle": "Escolha o barbeiro, o serviço e o horário.",
