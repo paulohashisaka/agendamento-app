@@ -1,14 +1,14 @@
 :root {
-  --color-bg: #1b1512;
-  --color-bg-alt: #241c16;
-  --color-surface: #2c2119;
+  --color-bg: #000000;
+  --color-bg-alt: #141414;
+  --color-surface: #1a1a1a;
   --color-cream: #f1e4c8;
   --color-cream-dim: #cbb98f;
   --color-gold: #c9a227;
   --color-gold-light: #e3c565;
   --color-maroon: #7a1f1f;
   --color-maroon-dark: #4a1212;
-  --color-border: #4a3a2a;
+  --color-border: #3a3a3a;
 
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-ui: 'Oswald', 'Segoe UI', Roboto, sans-serif;
@@ -83,7 +83,7 @@ a {
   justify-content: space-between;
   gap: 12px;
   padding: 10px 16px;
-  background: linear-gradient(180deg, #201812, var(--color-bg));
+  background: linear-gradient(180deg, var(--color-bg-alt), var(--color-bg));
   border-bottom: 3px solid var(--color-gold);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
@@ -302,6 +302,14 @@ select {
   color: var(--color-cream);
 }
 
+input[type='date'] {
+  /* iOS Safari aplica um padding interno próprio ao controle nativo de
+     data, somando-se ao nosso e deixando o campo mais alto que os demais.
+     appearance:none remove esse padding embutido do WebKit. */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 input:focus,
 select:focus {
   outline: none;
@@ -325,7 +333,7 @@ button {
 
 button:hover:not(:disabled) {
   background: var(--color-gold);
-  color: #1b1512;
+  color: var(--color-bg);
 }
 
 button:disabled {
@@ -342,7 +350,7 @@ button:disabled {
 
 .lista-servicos-acoes button:hover:not(:disabled) {
   background: var(--color-gold);
-  color: #1b1512;
+  color: var(--color-bg);
 }
 
 .form-login,
