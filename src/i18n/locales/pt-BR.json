@@ -58,11 +58,11 @@
     "loading": "Carregando..."
   },
   "gerarHorarios": {
-    "titulo": "Gerar horários",
-    "gerando": "Gerando...",
-    "gerar": "Gerar",
-    "sucesso": "Horários gerados com sucesso.",
-    "erro": "Erro: {{mensagem}}"
+    "titulo": "Dias de trabalho",
+    "instrucao": "Toque em um dia para marcar que você vai trabalhar. Toque novamente para tirar folga (só é possível se não houver agendamentos confirmados nesse dia).",
+    "diaComAgendamentos": "Não é possível tirar folga: existem {{count}} agendamento(s) confirmado(s) nesse dia. Cancele-os na Agenda antes.",
+    "legendaTrabalho": "Dia de trabalho",
+    "legendaFolga": "Folga / não marcado"
   },
   "agenda": {
     "titulo": "Agenda",

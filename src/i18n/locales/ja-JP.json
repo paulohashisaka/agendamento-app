@@ -58,11 +58,11 @@
     "loading": "読み込み中..."
   },
   "gerarHorarios": {
-    "titulo": "時間を生成",
-    "gerando": "生成中...",
-    "gerar": "生成",
-    "sucesso": "時間の生成に成功しました。",
-    "erro": "エラー: {{mensagem}}"
+    "titulo": "勤務日",
+    "instrucao": "日付をタップすると勤務日として設定されます。もう一度タップすると休みにできます(その日に確定した予約がない場合のみ)。",
+    "diaComAgendamentos": "休みにできません:この日には確定した予約が{{count}}件あります。先に予約一覧でキャンセルしてください。",
+    "legendaTrabalho": "勤務日",
+    "legendaFolga": "休み・未設定"
   },
   "agenda": {
     "titulo": "予約一覧",

@@ -1,7 +1,7 @@
 import { supabase } from './supabaseClient'
 import { paraISOLocal } from './dateUtils'
 
-const SLOT_MINUTOS = 30
+const SLOT_MINUTOS = 60
 const ABERTURA = '09:00'
 const FECHAMENTO = '19:00'
 const ALMOCO_INICIO = '12:00'
@@ -39,7 +39,6 @@ export async function gerarHorarios(barbeiroId, dataInicio, dias) {
   for (let i = 0; i < dias; i++) {
     const dia = new Date(base)
     dia.setDate(dia.getDate() + i)
-    if (dia.getDay() === 0) continue // domingo fechado
 
     const dataStr = paraISOLocal(dia)
     for (const slot of gerarSlotsDoDia()) {
@@ -62,4 +61,44 @@ export async function listHorariosDisponiveis(data, barbeiroId) {
   const { data: rows, error } = await query
   if (error) throw error
   return rows
+}
+
+// Datas (dentro do intervalo) em que o barbeiro já tem algum horário gerado,
+// usado pra destacar no calendário quais dias estão marcados como "trabalho".
+export async function listDiasComHorarios(barbeiroId, dataInicio, dataFim) {
+  const { data, error } = await supabase
+    .from('horarios')
+    .select('data')
+    .eq('barbeiro_id', barbeiroId)
+    .gte('data', dataInicio)
+    .lte('data', dataFim)
+
+  if (error) throw error
+  return [...new Set(data.map((h) => h.data))]
+}
+
+export async function contarHorariosDoDia(barbeiroId, data) {
+  const { data: rows, error } = await supabase
+    .from('horarios')
+    .select('disponivel')
+    .eq('barbeiro_id', barbeiroId)
+    .eq('data', data)
+
+  if (error) throw error
+  const reservados = rows.filter((r) => !r.disponivel).length
+  return { total: rows.length, reservados, livres: rows.length - reservados }
+}
+
+// Remove os horários do dia que ainda não foram reservados. Horários com
+// agendamento confirmado (disponivel = false) nunca são apagados por aqui —
+// o banco também bloquearia por causa da referência em agendamentos.
+export async function limparHorariosDoDia(barbeiroId, data) {
+  const { error } = await supabase
+    .from('horarios')
+    .delete()
+    .eq('barbeiro_id', barbeiroId)
+    .eq('data', data)
+    .eq('disponivel', true)
+
+  if (error) throw error
 }
