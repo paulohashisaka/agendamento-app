@@ -5,15 +5,13 @@ import { criarAgendamento } from '../../lib/agendamentos'
 import { hojeLocal as hoje, formatarDataExibicao } from '../../lib/dateUtils'
 import { gerarLinkWhatsapp } from '../../lib/whatsapp'
 
-function AgendamentoForm({ servicos, barbeiros }) {
+function AgendamentoForm({ servicos, barbeiros, perfil }) {
   const { t, i18n } = useTranslation()
   const [barbeiroId, setBarbeiroId] = useState('')
   const [servicoId, setServicoId] = useState(servicos[0]?.id ?? '')
   const [data, setData] = useState(hoje())
   const [horarios, setHorarios] = useState([])
   const [horarioId, setHorarioId] = useState('')
-  const [clienteNome, setClienteNome] = useState('')
-  const [clienteTelefone, setClienteTelefone] = useState('')
   const [loadingHorarios, setLoadingHorarios] = useState(true)
   const [enviando, setEnviando] = useState(false)
   const [erro, setErro] = useState(null)
@@ -56,14 +54,14 @@ function AgendamentoForm({ servicos, barbeiros }) {
     const horario = horarios.find((h) => h.id === horarioId)
 
     try {
-      await criarAgendamento({ horarioId, servicoId, clienteNome, clienteTelefone })
+      await criarAgendamento({ horarioId, servicoId })
       setConfirmado({
         servicoNome: servicos.find((s) => s.id === servicoId)?.nome,
         barbeiroNome: nomeBarbeiro(horario?.barbeiro_id),
         data: horario?.data ?? data,
         horaInicio: horario?.hora_inicio,
-        clienteNome,
-        clienteTelefone,
+        clienteNome: perfil.nome,
+        clienteTelefone: perfil.telefone,
       })
     } catch (err) {
       setErro(err.message)
@@ -170,25 +168,11 @@ function AgendamentoForm({ servicos, barbeiros }) {
         )}
       </label>
 
-      <label>
-        {t('agendamento.nomeLabel')}
-        <input
-          type="text"
-          value={clienteNome}
-          onChange={(e) => setClienteNome(e.target.value)}
-          required
-        />
-      </label>
-
-      <label>
-        {t('agendamento.telefoneLabel')}
-        <input
-          type="tel"
-          value={clienteTelefone}
-          onChange={(e) => setClienteTelefone(e.target.value)}
-          required
-        />
-      </label>
+      <div className="dados-cliente-agendamento">
+        <span>{t('agendamento.bookingFor')}</span>
+        <strong>{perfil.nome}</strong>
+        <small>{perfil.telefone}</small>
+      </div>
 
       {erro && <p role="alert">{erro}</p>}
 

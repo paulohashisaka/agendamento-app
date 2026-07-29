@@ -7,19 +7,30 @@
     "add": "追加",
     "edit": "編集",
     "delete": "削除",
-    "select": "選択してください"
+    "select": "選択してください",
+    "back": "戻る"
   },
   "header": {
     "logoAlt": "理容室のロゴ",
     "menuLabel": "メニューを開く",
     "agendar": "予約する",
     "servicos": "サービス一覧",
-    "admin": "理容師エリア"
+    "admin": "理容師エリア",
+    "login": "ログイン",
+    "signup": "アカウント作成",
+    "myAccount": "マイページ",
+    "logout": "ログアウト"
   },
   "cliente": {
     "title": "予約する",
     "subtitle": "理容師、サービス、時間を選んでください。",
-    "errorLoading": "データの読み込みエラー: {{error}}"
+    "errorLoading": "データの読み込みエラー: {{error}}",
+    "loginRequiredTitle": "ログインして予約する",
+    "loginRequiredBody": "アカウントでお客様情報を安全に管理し、予約をまとめて確認できます。",
+    "adminAccountTitle": "管理者アカウントでログイン中です",
+    "adminAccountBody": "予約とサービスの管理は理容師パネルをご利用ください。",
+    "goToAdmin": "管理画面へ",
+    "profileError": "プロフィールを読み込めませんでした。一度ログアウトして再度お試しください。"
   },
   "agendamento": {
     "formTitle": "予約",
@@ -37,7 +48,8 @@
     "confirmadoTitulo": "予約が確定しました!",
     "confirmadoResumo": "{{servico}}(担当:{{barbeiro}})",
     "confirmadoDataHora": "{{data}} {{hora}}",
-    "opcaoHorario": "{{hora}} · {{barbeiro}}"
+    "opcaoHorario": "{{hora}} · {{barbeiro}}",
+    "bookingFor": "予約者"
   },
   "admin": {
     "title": "理容師パネル",
@@ -49,6 +61,81 @@
     "senhaLabel": "パスワード",
     "entrando": "ログイン中...",
     "entrar": "ログイン"
+  },
+  "auth": {
+    "clientArea": "お客様ページ",
+    "loginTitle": "おかえりなさい",
+    "loginSubtitle": "ログインして予約の作成・確認ができます。",
+    "emailLabel": "メールアドレス",
+    "passwordLabel": "パスワード",
+    "confirmPasswordLabel": "パスワード確認",
+    "newPasswordLabel": "新しいパスワード",
+    "forgotPassword": "パスワードを忘れた方",
+    "loginButton": "ログイン",
+    "loggingIn": "ログイン中...",
+    "loginError": "メールアドレスまたはパスワードが正しくありません。",
+    "noAccount": "アカウントをお持ちでない方",
+    "createAccountLink": "新規登録",
+    "signupTitle": "アカウント作成",
+    "signupSubtitle": "情報を入力すると、簡単に予約できるようになります。",
+    "nameLabel": "氏名",
+    "phoneLabel": "電話番号",
+    "passwordHelp": "6文字以上で入力してください。",
+    "signupButton": "アカウントを作成",
+    "signingUp": "作成中...",
+    "signupError": "アカウントを作成できませんでした。入力内容またはメールアドレスをご確認ください。",
+    "passwordMinLength": "パスワードは6文字以上で入力してください。",
+    "passwordMismatch": "パスワードが一致しません。",
+    "hasAccount": "すでにアカウントをお持ちですか？",
+    "loginLink": "ログイン",
+    "checkEmailTitle": "メールをご確認ください",
+    "checkEmailBody": "{{email}} に確認リンクを送信しました。リンクを開いてアカウントを有効にしてください。",
+    "backToLogin": "ログインに戻る",
+    "recoveryTitle": "パスワード再設定",
+    "recoverySubtitle": "メールアドレスを入力すると、新しいパスワードを設定するためのリンクを送信します。",
+    "sendRecovery": "再設定リンクを送信",
+    "sendingRecovery": "送信中...",
+    "recoveryError": "現在メールを送信できません。しばらくしてからもう一度お試しください。",
+    "recoverySentTitle": "メールをご確認ください",
+    "recoverySentBody": "該当するアカウントがある場合、パスワード再設定リンクが届きます。",
+    "resetTitle": "新しいパスワード",
+    "resetSubtitle": "アカウントを保護する新しいパスワードを設定してください。",
+    "updatePassword": "新しいパスワードを保存",
+    "updatingPassword": "保存中...",
+    "resetError": "パスワードを更新できませんでした。新しいリンクを取得して再度お試しください。",
+    "resetSuccessTitle": "パスワードを更新しました",
+    "resetSuccessBody": "新しいパスワードが有効になりました。",
+    "invalidLinkTitle": "リンクが無効または期限切れです",
+    "invalidLinkBody": "セキュリティのため、再設定リンクには有効期限があります。",
+    "requestNewLink": "新しいリンクを取得",
+    "goToAccount": "マイページへ",
+    "restrictedTitle": "アクセスできません",
+    "restrictedBody": "このページは理容師専用です。",
+    "profileError": "管理者プロフィールが見つかりません。アカウント設定をご確認ください。",
+    "profileLoadTitle": "アカウントを開けませんでした",
+    "profileLoadBody": "一度ログアウトして再度お試しください。解決しない場合は店舗へお問い合わせください。"
+  },
+  "conta": {
+    "greeting": "こんにちは、{{name}}さん",
+    "subtitle": "お客様情報と予約を確認できます。",
+    "emailLabel": "メールアドレス",
+    "phoneLabel": "電話番号",
+    "bookButton": "新しい予約",
+    "logoutButton": "ログアウト",
+    "appointmentsTitle": "予約履歴",
+    "appointmentsSubtitle": "確定済み・キャンセル済みの予約を確認できます。",
+    "loadingAppointments": "予約を読み込み中...",
+    "emptyAppointments": "予約はまだありません。",
+    "timeLabel": "時間",
+    "barberLabel": "担当",
+    "cancelAppointment": "予約をキャンセル",
+    "cancelConfirmation": "この予約をキャンセルしますか？",
+    "confirmCancel": "キャンセルする",
+    "cancelling": "キャンセル中...",
+    "status": {
+      "confirmado": "確定",
+      "cancelado": "キャンセル済み"
+    }
   },
   "servicos": {
     "titulo": "サービス",
@@ -74,7 +161,10 @@
     "horario_nao_encontrado": "時間が見つかりません",
     "horario_indisponivel": "この時間は予約できません",
     "antecedencia_minima": "予約は1時間前までにお願いします",
-    "agendamento_ja_cancelado": "予約が見つからないか、すでにキャンセルされています"
+    "agendamento_ja_cancelado": "予約が見つからないか、すでにキャンセルされています",
+    "autenticacao_necessaria": "続けるにはログインしてください",
+    "conta_cliente_necessaria": "予約にはお客様アカウントが必要です",
+    "agendamento_nao_permitido": "予約が見つからない、キャンセル済み、または権限がありません"
   },
   "whatsapp": {
     "enviar": "WhatsAppで確認を送る",

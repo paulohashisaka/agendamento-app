@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { listServicos } from '../../lib/servicos'
 import { listBarbeiros } from '../../lib/barbeiros'
 import Header from '../../components/Header'
 import AgendamentoForm from './AgendamentoForm'
+import { useAuth } from '../../hooks/useAuth'
 import logo from '../../assets/logo_exemplo.png'
 
 const formatarPreco = (preco) =>
@@ -12,6 +13,7 @@ const formatarPreco = (preco) =>
 
 function ClientePage() {
   const { t } = useTranslation()
+  const { session, perfil, loading: loadingAuth, erroPerfil } = useAuth()
   const location = useLocation()
   const [servicos, setServicos] = useState([])
   const [barbeiros, setBarbeiros] = useState([])
@@ -66,7 +68,45 @@ function ClientePage() {
             </section>
 
             <section id="agendamento">
-              <AgendamentoForm servicos={servicos} barbeiros={barbeiros} />
+              {loadingAuth ? (
+                <p>{t('common.loading')}</p>
+              ) : !session ? (
+                <div className="auth-gate">
+                  <span className="auth-kicker">{t('auth.clientArea')}</span>
+                  <h2>{t('cliente.loginRequiredTitle')}</h2>
+                  <p>{t('cliente.loginRequiredBody')}</p>
+                  <div className="auth-gate-actions">
+                    <Link
+                      className="botao-link"
+                      to="/entrar"
+                      state={{ from: '/#agendamento' }}
+                    >
+                      {t('header.login')}
+                    </Link>
+                    <Link className="botao-link botao-secundario" to="/cadastro">
+                      {t('header.signup')}
+                    </Link>
+                  </div>
+                </div>
+              ) : perfil?.papel === 'admin' ? (
+                <div className="auth-gate">
+                  <h2>{t('cliente.adminAccountTitle')}</h2>
+                  <p>{t('cliente.adminAccountBody')}</p>
+                  <Link className="botao-link" to="/admin">
+                    {t('cliente.goToAdmin')}
+                  </Link>
+                </div>
+              ) : erroPerfil || !perfil ? (
+                <p role="alert" className="mensagem-erro">
+                  {t('cliente.profileError')}
+                </p>
+              ) : (
+                <AgendamentoForm
+                  servicos={servicos}
+                  barbeiros={barbeiros}
+                  perfil={perfil}
+                />
+              )}
             </section>
           </>
         )}

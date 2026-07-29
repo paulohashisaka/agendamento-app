@@ -187,6 +187,21 @@ a {
   color: var(--color-gold-light);
 }
 
+.app-menu-dropdown .app-menu-action {
+  width: 100%;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-cream);
+  text-align: left;
+}
+
+.app-menu-dropdown .app-menu-action:hover:not(:disabled) {
+  background: var(--color-maroon-dark);
+  color: var(--color-gold-light);
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -341,6 +356,45 @@ button:disabled {
   cursor: default;
 }
 
+.botao-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid var(--color-gold);
+  border-radius: 4px;
+  background: var(--color-maroon);
+  color: var(--color-cream);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.botao-link:hover,
+.botao-link:active {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.botao-secundario,
+.botao-link.botao-secundario {
+  background: transparent;
+  color: var(--color-gold-light);
+}
+
+.botao-secundario:hover:not(:disabled),
+.botao-link.botao-secundario:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
 .lista-servicos-acoes button {
   padding: 6px 10px;
   font-size: 12px;
@@ -380,6 +434,20 @@ button:disabled {
   gap: 8px;
 }
 
+.field-help {
+  color: var(--color-cream-dim);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.mensagem-erro {
+  padding: 10px 12px;
+  border-left: 3px solid #d45b5b;
+  background: rgba(122, 31, 31, 0.24);
+  color: #f0b7b7;
+}
+
 /* ---------- Sections ---------- */
 
 .secao-servicos {
@@ -407,6 +475,261 @@ section + section {
   display: flex;
   gap: 8px;
   margin: 12px 0;
+}
+
+/* ---------- Autenticacao ---------- */
+
+.page-auth {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 38px;
+}
+
+.auth-card {
+  width: 100%;
+  padding: 24px 20px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-gold);
+  border-radius: 4px;
+  background:
+    linear-gradient(145deg, rgba(201, 162, 39, 0.06), transparent 42%),
+    var(--color-bg-alt);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+.auth-heading {
+  text-align: center;
+}
+
+.auth-heading h1,
+.auth-feedback h1 {
+  margin-top: 4px;
+}
+
+.auth-kicker {
+  color: var(--color-gold);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.auth-inline-link {
+  align-self: flex-end;
+  margin-top: -4px;
+  font-size: 13px;
+}
+
+.auth-switch {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.auth-feedback {
+  padding: 14px 0;
+  text-align: center;
+}
+
+.auth-feedback-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 16px;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  font-size: 25px;
+}
+
+.auth-feedback .botao-link {
+  margin-top: 22px;
+}
+
+.auth-gate {
+  padding: 24px 20px;
+  border: 1px solid var(--color-gold);
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at top right, rgba(201, 162, 39, 0.1), transparent 40%),
+    var(--color-bg-alt);
+  text-align: center;
+}
+
+.auth-gate h2 {
+  margin-top: 5px;
+}
+
+.auth-gate-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.auth-gate > .botao-link {
+  margin-top: 20px;
+}
+
+.acesso-restrito {
+  margin-top: 24px;
+  text-align: center;
+}
+
+/* ---------- Conta do cliente ---------- */
+
+.page-conta {
+  padding-top: 34px;
+}
+
+.conta-resumo > h1 {
+  margin-top: 4px;
+}
+
+.perfil-dados {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 0;
+}
+
+.perfil-dados div {
+  padding: 12px 14px;
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-bg-alt);
+}
+
+.perfil-dados dt,
+.agendamento-detalhes dt {
+  color: var(--color-cream-dim);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.perfil-dados dd,
+.agendamento-detalhes dd {
+  margin: 2px 0 0;
+  color: var(--color-cream);
+}
+
+.conta-acoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.conta-agendamentos > p {
+  margin-top: 4px;
+}
+
+.lista-vazia {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px dashed var(--color-border);
+  text-align: center;
+}
+
+.meus-agendamentos {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meus-agendamentos > li {
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 4px;
+  background: var(--color-bg-alt);
+}
+
+.meus-agendamentos > li.agendamento-cancelado {
+  border-left-color: var(--color-border);
+  opacity: 0.72;
+}
+
+.agendamento-card-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.agendamento-data {
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  font-size: 17px;
+}
+
+.status-badge {
+  padding: 3px 8px;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  color: var(--color-gold-light);
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.status-badge--cancelado {
+  border-color: var(--color-border);
+  color: var(--color-cream-dim);
+}
+
+.agendamento-detalhes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.botao-cancelar-agendamento {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.confirmacao-cancelamento {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.confirmacao-cancelamento > div {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.confirmacao-cancelamento button {
+  flex: 1;
+  padding-inline: 10px;
+  font-size: 12px;
+}
+
+.dados-cliente-agendamento {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-bg-alt);
+}
+
+.dados-cliente-agendamento span {
+  color: var(--color-cream-dim);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dados-cliente-agendamento small {
+  color: var(--color-cream-dim);
 }
 
 /* ---------- Calendário de dias de trabalho ---------- */

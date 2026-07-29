@@ -7,19 +7,30 @@
     "add": "Adicionar",
     "edit": "Editar",
     "delete": "Excluir",
-    "select": "Selecione"
+    "select": "Selecione",
+    "back": "Voltar"
   },
   "header": {
     "logoAlt": "Logotipo da barbearia",
     "menuLabel": "Abrir menu",
     "agendar": "Agende seu horário",
     "servicos": "Nossos Serviços",
-    "admin": "Área do Barbeiro"
+    "admin": "Área do Barbeiro",
+    "login": "Entrar",
+    "signup": "Criar conta",
+    "myAccount": "Minha conta",
+    "logout": "Sair"
   },
   "cliente": {
     "title": "Agendar horário",
     "subtitle": "Escolha o barbeiro, o serviço e o horário.",
-    "errorLoading": "Erro ao carregar dados: {{error}}"
+    "errorLoading": "Erro ao carregar dados: {{error}}",
+    "loginRequiredTitle": "Entre para fazer seu agendamento",
+    "loginRequiredBody": "Sua conta mantém seus dados protegidos e reúne todos os seus horários em um só lugar.",
+    "adminAccountTitle": "Você está usando uma conta administrativa",
+    "adminAccountBody": "Para gerenciar a agenda e os serviços, acesse o painel do barbeiro.",
+    "goToAdmin": "Ir para o painel",
+    "profileError": "Não foi possível carregar o seu perfil. Tente sair e entrar novamente."
   },
   "agendamento": {
     "formTitle": "Agendar",
@@ -37,7 +48,8 @@
     "confirmadoTitulo": "Agendamento confirmado!",
     "confirmadoResumo": "{{servico}} com {{barbeiro}}",
     "confirmadoDataHora": "{{data}} às {{hora}}",
-    "opcaoHorario": "{{hora}} · {{barbeiro}}"
+    "opcaoHorario": "{{hora}} · {{barbeiro}}",
+    "bookingFor": "Agendamento para"
   },
   "admin": {
     "title": "Painel do barbeiro",
@@ -49,6 +61,81 @@
     "senhaLabel": "Senha",
     "entrando": "Entrando...",
     "entrar": "Entrar"
+  },
+  "auth": {
+    "clientArea": "Área do cliente",
+    "loginTitle": "Bem-vindo de volta",
+    "loginSubtitle": "Entre para agendar e acompanhar seus horários.",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Senha",
+    "confirmPasswordLabel": "Confirmar senha",
+    "newPasswordLabel": "Nova senha",
+    "forgotPassword": "Esqueci minha senha",
+    "loginButton": "Entrar",
+    "loggingIn": "Entrando...",
+    "loginError": "E-mail ou senha incorretos. Verifique os dados e tente novamente.",
+    "noAccount": "Ainda não tem uma conta?",
+    "createAccountLink": "Cadastre-se",
+    "signupTitle": "Crie sua conta",
+    "signupSubtitle": "Preencha seus dados para fazer agendamentos com mais facilidade.",
+    "nameLabel": "Nome completo",
+    "phoneLabel": "Telefone",
+    "passwordHelp": "Use pelo menos 6 caracteres.",
+    "signupButton": "Criar minha conta",
+    "signingUp": "Criando conta...",
+    "signupError": "Não foi possível criar a conta. Verifique os dados ou tente outro e-mail.",
+    "passwordMinLength": "A senha precisa ter pelo menos 6 caracteres.",
+    "passwordMismatch": "As senhas não são iguais.",
+    "hasAccount": "Já tem uma conta?",
+    "loginLink": "Entrar",
+    "checkEmailTitle": "Confirme seu e-mail",
+    "checkEmailBody": "Enviamos um link de confirmação para {{email}}. Abra o e-mail para ativar sua conta.",
+    "backToLogin": "Voltar para o login",
+    "recoveryTitle": "Recuperar senha",
+    "recoverySubtitle": "Informe seu e-mail e enviaremos um link seguro para você criar uma nova senha.",
+    "sendRecovery": "Enviar link de recuperação",
+    "sendingRecovery": "Enviando...",
+    "recoveryError": "Não foi possível enviar o e-mail agora. Tente novamente em alguns minutos.",
+    "recoverySentTitle": "Verifique seu e-mail",
+    "recoverySentBody": "Se existir uma conta com esse endereço, você receberá um link para redefinir a senha.",
+    "resetTitle": "Crie uma nova senha",
+    "resetSubtitle": "Escolha uma senha nova para proteger sua conta.",
+    "updatePassword": "Salvar nova senha",
+    "updatingPassword": "Salvando...",
+    "resetError": "Não foi possível atualizar a senha. Solicite um novo link e tente novamente.",
+    "resetSuccessTitle": "Senha atualizada",
+    "resetSuccessBody": "Sua nova senha já está ativa.",
+    "invalidLinkTitle": "Link inválido ou expirado",
+    "invalidLinkBody": "Por segurança, os links de recuperação têm validade limitada.",
+    "requestNewLink": "Solicitar novo link",
+    "goToAccount": "Ir para minha conta",
+    "restrictedTitle": "Acesso restrito",
+    "restrictedBody": "Esta área é exclusiva para o barbeiro.",
+    "profileError": "O perfil administrativo não foi encontrado. Verifique a configuração da conta.",
+    "profileLoadTitle": "Não foi possível abrir sua conta",
+    "profileLoadBody": "Saia e entre novamente. Se o problema continuar, entre em contato com a barbearia."
+  },
+  "conta": {
+    "greeting": "Olá, {{name}}",
+    "subtitle": "Aqui estão seus dados e seus agendamentos.",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Telefone",
+    "bookButton": "Novo agendamento",
+    "logoutButton": "Sair da conta",
+    "appointmentsTitle": "Meus agendamentos",
+    "appointmentsSubtitle": "Consulte seus horários confirmados e cancelados.",
+    "loadingAppointments": "Carregando seus agendamentos...",
+    "emptyAppointments": "Você ainda não possui agendamentos.",
+    "timeLabel": "Horário",
+    "barberLabel": "Barbeiro",
+    "cancelAppointment": "Cancelar agendamento",
+    "cancelConfirmation": "Tem certeza de que deseja cancelar este horário?",
+    "confirmCancel": "Sim, cancelar",
+    "cancelling": "Cancelando...",
+    "status": {
+      "confirmado": "Confirmado",
+      "cancelado": "Cancelado"
+    }
   },
   "servicos": {
     "titulo": "Serviços",
@@ -74,7 +161,10 @@
     "horario_nao_encontrado": "Horário não encontrado",
     "horario_indisponivel": "Horário indisponível",
     "antecedencia_minima": "Agendamento precisa de pelo menos 1 hora de antecedência",
-    "agendamento_ja_cancelado": "Agendamento não encontrado ou já cancelado"
+    "agendamento_ja_cancelado": "Agendamento não encontrado ou já cancelado",
+    "autenticacao_necessaria": "Entre na sua conta para continuar",
+    "conta_cliente_necessaria": "É necessário usar uma conta de cliente para agendar",
+    "agendamento_nao_permitido": "Agendamento não encontrado, já cancelado ou sem permissão"
   },
   "whatsapp": {
     "enviar": "Enviar confirmação via WhatsApp",
