@@ -39,7 +39,7 @@ export function AuthProvider({ children }) {
     setPerfil(undefined)
     setErroPerfil(null)
 
-    getMeuPerfil()
+    getMeuPerfil(session.user.id)
       .then((dados) => {
         if (ativo) setPerfil(dados)
       })

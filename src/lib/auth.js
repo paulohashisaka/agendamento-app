@@ -31,8 +31,13 @@ export function atualizarSenha(password) {
   return supabase.auth.updateUser({ password })
 }
 
-export async function getMeuPerfil() {
-  const { data, error } = await supabase.from('perfis').select('*').single()
+export async function getMeuPerfil(userId) {
+  const { data, error } = await supabase
+    .from('perfis')
+    .select('*')
+    .eq('id', userId)
+    .single()
+
   if (error) throw error
   return data
 }
