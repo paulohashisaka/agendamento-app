@@ -164,7 +164,8 @@
     "agendamento_ja_cancelado": "予約が見つからないか、すでにキャンセルされています",
     "autenticacao_necessaria": "続けるにはログインしてください",
     "conta_cliente_necessaria": "予約にはお客様アカウントが必要です",
-    "agendamento_nao_permitido": "予約が見つからない、キャンセル済み、または権限がありません"
+    "agendamento_nao_permitido": "予約が見つからない、キャンセル済み、または権限がありません",
+    "dia_com_agendamentos": "確定した予約がある日は休みに変更できません"
   },
   "whatsapp": {
     "enviar": "WhatsAppで確認を送る",

@@ -1,5 +1,6 @@
 import { supabase } from './supabaseClient'
 import { paraISOLocal } from './dateUtils'
+import { traduzirErro } from './errosSupabase'
 
 const SLOT_MINUTOS = 60
 const ABERTURA = '09:00'
@@ -42,20 +43,31 @@ export async function gerarHorarios(barbeiroId, dataInicio, dias) {
 
     const dataStr = paraISOLocal(dia)
     for (const slot of gerarSlotsDoDia()) {
-      linhas.push({ barbeiro_id: barbeiroId, data: dataStr, ...slot, disponivel: true })
+      linhas.push({
+        barbeiro_id: barbeiroId,
+        data: dataStr,
+        ...slot,
+        disponivel: true,
+        ativo: true,
+      })
     }
   }
 
   const { error } = await supabase
     .from('horarios')
-    .upsert(linhas, { onConflict: 'barbeiro_id,data,hora_inicio', ignoreDuplicates: true })
+    .upsert(linhas, { onConflict: 'barbeiro_id,data,hora_inicio' })
 
   if (error) throw error
   return linhas.length
 }
 
 export async function listHorariosDisponiveis(data, barbeiroId) {
-  let query = supabase.from('horarios').select('*').eq('data', data).order('hora_inicio')
+  let query = supabase
+    .from('horarios')
+    .select('*')
+    .eq('data', data)
+    .eq('ativo', true)
+    .order('hora_inicio')
   if (barbeiroId) query = query.eq('barbeiro_id', barbeiroId)
 
   const { data: rows, error } = await query
@@ -70,6 +82,7 @@ export async function listDiasComHorarios(barbeiroId, dataInicio, dataFim) {
     .from('horarios')
     .select('data')
     .eq('barbeiro_id', barbeiroId)
+    .eq('ativo', true)
     .gte('data', dataInicio)
     .lte('data', dataFim)
 
@@ -83,22 +96,21 @@ export async function contarHorariosDoDia(barbeiroId, data) {
     .select('disponivel')
     .eq('barbeiro_id', barbeiroId)
     .eq('data', data)
+    .eq('ativo', true)
 
   if (error) throw error
   const reservados = rows.filter((r) => !r.disponivel).length
   return { total: rows.length, reservados, livres: rows.length - reservados }
 }
 
-// Remove os horários do dia que ainda não foram reservados. Horários com
-// agendamento confirmado (disponivel = false) nunca são apagados por aqui —
-// o banco também bloquearia por causa da referência em agendamentos.
+// Marca o dia como folga sem apagar horários ligados ao histórico de
+// agendamentos. A função do banco também impede a alteração se uma reserva
+// for confirmada enquanto o administrador estiver executando esta ação.
 export async function limparHorariosDoDia(barbeiroId, data) {
-  const { error } = await supabase
-    .from('horarios')
-    .delete()
-    .eq('barbeiro_id', barbeiroId)
-    .eq('data', data)
-    .eq('disponivel', true)
+  const { error } = await supabase.rpc('marcar_dia_folga', {
+    p_barbeiro_id: barbeiroId,
+    p_data: data,
+  })
 
-  if (error) throw error
+  if (error) throw new Error(traduzirErro(error.message))
 }

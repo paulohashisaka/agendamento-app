@@ -164,7 +164,8 @@
     "agendamento_ja_cancelado": "Agendamento não encontrado ou já cancelado",
     "autenticacao_necessaria": "Entre na sua conta para continuar",
     "conta_cliente_necessaria": "É necessário usar uma conta de cliente para agendar",
-    "agendamento_nao_permitido": "Agendamento não encontrado, já cancelado ou sem permissão"
+    "agendamento_nao_permitido": "Agendamento não encontrado, já cancelado ou sem permissão",
+    "dia_com_agendamentos": "Não é possível tirar folga enquanto houver agendamentos confirmados nesse dia"
   },
   "whatsapp": {
     "enviar": "Enviar confirmação via WhatsApp",

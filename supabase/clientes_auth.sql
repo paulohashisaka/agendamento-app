@@ -209,7 +209,7 @@ begin
     raise exception 'horario_nao_encontrado';
   end if;
 
-  if not v_horario.disponivel then
+  if not v_horario.ativo or not v_horario.disponivel then
     raise exception 'horario_indisponivel';
   end if;
 

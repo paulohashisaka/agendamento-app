@@ -18,7 +18,8 @@ create table horarios (
   data date not null,
   hora_inicio time not null,
   hora_fim time not null,
-  disponivel boolean not null default true
+  disponivel boolean not null default true,
+  ativo boolean not null default true
 );
 create index idx_horarios_barbeiro_data on horarios(barbeiro_id, data);
 
@@ -53,7 +54,7 @@ create policy "barbeiros: leitura publica" on barbeiros
 
 -- Horarios: cliente só vê os disponíveis e futuros; barbeiro logado vê tudo
 create policy "horarios: leitura publica de disponiveis" on horarios
-  for select using (disponivel = true and data >= current_date);
+  for select using (ativo = true and disponivel = true and data >= current_date);
 
 create policy "horarios: leitura total para autenticado" on horarios
   for select to authenticated using (true);
