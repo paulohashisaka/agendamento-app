@@ -2,9 +2,9 @@ import { supabase } from './supabaseClient'
 import { paraISOLocal } from './dateUtils'
 import { traduzirErro } from './errosSupabase'
 
-const SLOT_MINUTOS = 60
+const SLOT_MINUTOS = 15
 const ABERTURA = '09:00'
-const FECHAMENTO = '19:00'
+const ULTIMO_HORARIO = '20:00'
 const ALMOCO_INICIO = '12:00'
 const ALMOCO_FIM = '13:00'
 
@@ -15,9 +15,11 @@ function pad(n) {
 function gerarSlotsDoDia() {
   const slots = []
   let [h, m] = ABERTURA.split(':').map(Number)
-  const [hFim, mFim] = FECHAMENTO.split(':').map(Number)
+  const [hFim, mFim] = ULTIMO_HORARIO.split(':').map(Number)
 
-  while (h < hFim || (h === hFim && m < mFim)) {
+  // O limite representa o último horário que pode ser escolhido, portanto
+  // 20:00 também deve gerar um slot (com término às 20:15).
+  while (h < hFim || (h === hFim && m <= mFim)) {
     const inicio = `${pad(h)}:${pad(m)}`
     m += SLOT_MINUTOS
     if (m >= 60) {
@@ -67,6 +69,7 @@ export async function listHorariosDisponiveis(data, barbeiroId) {
     .select('*')
     .eq('data', data)
     .eq('ativo', true)
+    .eq('disponivel', true)
     .order('hora_inicio')
   if (barbeiroId) query = query.eq('barbeiro_id', barbeiroId)
 

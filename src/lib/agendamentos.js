@@ -11,6 +11,18 @@ export async function criarAgendamento({ horarioId, servicoId }) {
   return data
 }
 
+export async function criarAgendamentoAdmin({ horarioId, servicoId, clienteNome, clienteTelefone }) {
+  const { data, error } = await supabase.rpc('criar_agendamento_admin', {
+    p_horario_id: horarioId,
+    p_servico_id: servicoId,
+    p_cliente_nome: clienteNome,
+    p_cliente_telefone: clienteTelefone,
+  })
+
+  if (error) throw new Error(traduzirErro(error.message))
+  return data
+}
+
 export async function listMeusAgendamentos() {
   const { data, error } = await supabase
     .from('agendamentos')

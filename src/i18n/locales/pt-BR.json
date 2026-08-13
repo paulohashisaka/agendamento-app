@@ -56,6 +56,17 @@
     "loading": "Carregando...",
     "logout": "Sair"
   },
+  "reservaAdmin": {
+    "titulo": "Reserva pelo barbeiro",
+    "descricao": "Agende para clientes que entrarem em contato diretamente com a barbearia.",
+    "abrir": "Nova reserva",
+    "fechar": "Fechar",
+    "nomeCliente": "Nome do cliente",
+    "telefoneCliente": "Telefone do cliente",
+    "confirmar": "Confirmar reserva",
+    "salvando": "Confirmando...",
+    "sucesso": "Reserva criada e adicionada à agenda."
+  },
   "login": {
     "emailLabel": "E-mail",
     "senhaLabel": "Senha",
@@ -155,7 +166,8 @@
     "titulo": "Agenda",
     "todosBarbeiros": "Todos os barbeiros",
     "loading": "Carregando...",
-    "vazio": "Nenhum agendamento nessa data."
+    "vazio": "Nenhum agendamento nessa data.",
+    "criadoPeloBarbeiro": "Reserva do barbeiro"
   },
   "erros": {
     "horario_nao_encontrado": "Horário não encontrado",
@@ -165,7 +177,10 @@
     "autenticacao_necessaria": "Entre na sua conta para continuar",
     "conta_cliente_necessaria": "É necessário usar uma conta de cliente para agendar",
     "agendamento_nao_permitido": "Agendamento não encontrado, já cancelado ou sem permissão",
-    "dia_com_agendamentos": "Não é possível tirar folga enquanto houver agendamentos confirmados nesse dia"
+    "dia_com_agendamentos": "Não é possível tirar folga enquanto houver agendamentos confirmados nesse dia",
+    "dados_cliente_invalidos": "Informe o nome e um telefone válido para o cliente",
+    "horario_passado": "Não é possível reservar um horário que já passou",
+    "permissao_negada": "Apenas o administrador pode realizar esta ação"
   },
   "whatsapp": {
     "enviar": "Enviar confirmação via WhatsApp",

@@ -30,6 +30,7 @@ create table agendamentos (
   horario_id uuid not null references horarios(id),
   cliente_nome text not null,
   cliente_telefone text not null,
+  criado_por_admin boolean not null default false,
   status text not null default 'confirmado' check (status in ('confirmado', 'cancelado')),
   criado_em timestamptz not null default now()
 );

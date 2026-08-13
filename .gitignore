@@ -27,6 +27,7 @@ dist-ssr
 # Notas locais com credenciais / config local da ferramenta
 *.rtf
 .claude/settings.local.json
+Proposta_Comercial_Sistema_Agendamento_Barbearia.docx
 
 # Local Netlify folder
 .netlify

@@ -9,6 +9,9 @@ const CHAVES_CONHECIDAS = [
   'conta_cliente_necessaria',
   'agendamento_nao_permitido',
   'dia_com_agendamentos',
+  'dados_cliente_invalidos',
+  'horario_passado',
+  'permissao_negada',
 ]
 
 export function traduzirErro(mensagem) {

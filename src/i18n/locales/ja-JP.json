@@ -56,6 +56,17 @@
     "loading": "読み込み中...",
     "logout": "ログアウト"
   },
+  "reservaAdmin": {
+    "titulo": "理容師による予約",
+    "descricao": "店舗へ直接連絡したお客様の予約を登録できます。",
+    "abrir": "新しい予約",
+    "fechar": "閉じる",
+    "nomeCliente": "お客様名",
+    "telefoneCliente": "電話番号",
+    "confirmar": "予約を確定",
+    "salvando": "確認中...",
+    "sucesso": "予約を作成し、予約一覧に追加しました。"
+  },
   "login": {
     "emailLabel": "メールアドレス",
     "senhaLabel": "パスワード",
@@ -155,7 +166,8 @@
     "titulo": "予約一覧",
     "todosBarbeiros": "全ての理容師",
     "loading": "読み込み中...",
-    "vazio": "この日の予約はありません。"
+    "vazio": "この日の予約はありません。",
+    "criadoPeloBarbeiro": "店舗受付"
   },
   "erros": {
     "horario_nao_encontrado": "時間が見つかりません",
@@ -165,7 +177,10 @@
     "autenticacao_necessaria": "続けるにはログインしてください",
     "conta_cliente_necessaria": "予約にはお客様アカウントが必要です",
     "agendamento_nao_permitido": "予約が見つからない、キャンセル済み、または権限がありません",
-    "dia_com_agendamentos": "確定した予約がある日は休みに変更できません"
+    "dia_com_agendamentos": "確定した予約がある日は休みに変更できません",
+    "dados_cliente_invalidos": "お客様名と有効な電話番号を入力してください",
+    "horario_passado": "過ぎた時間は予約できません",
+    "permissao_negada": "この操作は管理者のみ実行できます"
   },
   "whatsapp": {
     "enviar": "WhatsAppで確認を送る",

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { listAgendamentos, cancelarAgendamento } from '../../lib/agendamentos'
 import { hojeLocal as hoje } from '../../lib/dateUtils'
 
-function Agenda({ barbeiros }) {
+function Agenda({ barbeiros, refreshKey = 0 }) {
   const { t } = useTranslation()
   const [barbeiroId, setBarbeiroId] = useState('')
   const [data, setData] = useState(hoje())
@@ -30,7 +30,7 @@ function Agenda({ barbeiros }) {
   useEffect(() => {
     reload()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [barbeiroId, data])
+  }, [barbeiroId, data, refreshKey])
 
   function nomeBarbeiro(id) {
     return barbeiros.find((b) => b.id === id)?.nome ?? ''
@@ -75,6 +75,9 @@ function Agenda({ barbeiros }) {
                 <span>{a.servicos.nome}</span>
                 <span>{nomeBarbeiro(a.barbeiro_id)}</span>
                 <span>{a.cliente_nome}</span>
+                {a.criado_por_admin && (
+                  <span className="agenda-origem">{t('agenda.criadoPeloBarbeiro')}</span>
+                )}
               </div>
               <div className="lista-servicos-acoes">
                 <button type="button" onClick={() => handleCancelar(a.id)}>

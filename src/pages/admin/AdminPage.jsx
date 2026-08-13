@@ -9,11 +9,13 @@ import LoginForm from './LoginForm'
 import ServicosManager from './ServicosManager'
 import GerarHorarios from './GerarHorarios'
 import Agenda from './Agenda'
+import NovaReserva from './NovaReserva'
 
 function AdminPage() {
   const { t } = useTranslation()
   const { session, perfil, loading, erroPerfil } = useAuth()
   const [barbeiros, setBarbeiros] = useState([])
+  const [agendaVersao, setAgendaVersao] = useState(0)
 
   useEffect(() => {
     if (perfil?.papel === 'admin') listBarbeiros().then(setBarbeiros)
@@ -67,7 +69,11 @@ function AdminPage() {
           </button>
         </header>
 
-        <Agenda barbeiros={barbeiros} />
+        <NovaReserva
+          barbeiros={barbeiros}
+          onReservaCriada={() => setAgendaVersao((versao) => versao + 1)}
+        />
+        <Agenda barbeiros={barbeiros} refreshKey={agendaVersao} />
         <GerarHorarios barbeiros={barbeiros} />
         <ServicosManager />
       </main>
