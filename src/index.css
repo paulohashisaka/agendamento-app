@@ -287,6 +287,8 @@ a {
 
 .lista-servicos li {
   display: flex;
+  width: 100%;
+  max-width: 100%;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
@@ -302,11 +304,19 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 12px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.lista-servicos-info > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .lista-servicos-acoes {
   display: flex;
   gap: 8px;
+  max-width: 100%;
   flex-shrink: 0;
 }
 
@@ -942,11 +952,13 @@ section + section {
   }
 
   .lista-servicos-acoes {
+    width: 100%;
     flex-wrap: wrap;
   }
 
   .lista-servicos-acoes button {
-    flex: 1 1 auto;
+    min-width: 0;
+    flex: 1 1 0;
   }
 
   .auth-gate-actions,
