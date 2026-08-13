@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { listServicos } from '../../lib/servicos'
+import { listServicos, nomeServico } from '../../lib/servicos'
 import { listBarbeiros } from '../../lib/barbeiros'
 import Header from '../../components/Header'
 import AgendamentoForm from './AgendamentoForm'
@@ -12,7 +12,7 @@ const formatarPreco = (preco) =>
   new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(preco)
 
 function ClientePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { session, perfil, loading: loadingAuth, erroPerfil } = useAuth()
   const location = useLocation()
   const [servicos, setServicos] = useState([])
@@ -59,7 +59,7 @@ function ClientePage() {
               <ul className="lista-servicos">
                 {servicos.map((servico) => (
                   <li key={servico.id}>
-                    <span>{servico.nome}</span>
+                    <span>{nomeServico(servico, i18n.language)}</span>
                     <span>{t('common.minutes', { count: servico.duracao_minutos })}</span>
                     <span>{formatarPreco(servico.preco)}</span>
                   </li>

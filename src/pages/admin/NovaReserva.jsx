@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { criarAgendamentoAdmin } from '../../lib/agendamentos'
 import { hojeLocal as hoje } from '../../lib/dateUtils'
 import { listHorariosDisponiveis } from '../../lib/horarios'
-import { listServicos } from '../../lib/servicos'
+import { listServicos, nomeServico } from '../../lib/servicos'
 
 function horarioAindaFuturo(horario) {
   return new Date(`${horario.data}T${horario.hora_inicio}`) > new Date()
 }
 
 function NovaReserva({ barbeiros, onReservaCriada }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [aberto, setAberto] = useState(false)
   const [servicos, setServicos] = useState([])
   const [barbeiroId, setBarbeiroId] = useState('')
@@ -151,7 +151,7 @@ function NovaReserva({ barbeiros, onReservaCriada }) {
               >
                 {servicos.map((servico) => (
                   <option key={servico.id} value={servico.id}>
-                    {servico.nome}
+                    {nomeServico(servico, i18n.language)}
                   </option>
                 ))}
               </select>

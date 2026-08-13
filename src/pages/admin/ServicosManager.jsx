@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { listServicos, createServico, updateServico, deleteServico } from '../../lib/servicos'
+import {
+  listServicos,
+  createServico,
+  updateServico,
+  deleteServico,
+} from '../../lib/servicos'
 
-const emptyForm = { nome: '', duracao_minutos: '', preco: '' }
+const emptyForm = { nome_pt: '', nome_ja: '', duracao_minutos: '', preco: '' }
 
 function ServicosManager() {
   const { t } = useTranslation()
@@ -30,7 +35,8 @@ function ServicosManager() {
   async function handleSubmit(e) {
     e.preventDefault()
     const payload = {
-      nome: form.nome,
+      nome_pt: form.nome_pt.trim(),
+      nome_ja: form.nome_ja.trim(),
       duracao_minutos: Number(form.duracao_minutos),
       preco: Number(form.preco),
     }
@@ -51,7 +57,8 @@ function ServicosManager() {
   function handleEdit(servico) {
     setEditingId(servico.id)
     setForm({
-      nome: servico.nome,
+      nome_pt: servico.nome_pt || servico.nome || '',
+      nome_ja: servico.nome_ja || servico.nome || '',
       duracao_minutos: String(servico.duracao_minutos),
       preco: String(servico.preco),
     })
@@ -79,9 +86,16 @@ function ServicosManager() {
       <form onSubmit={handleSubmit} className="form-servico">
         <input
           type="text"
-          placeholder={t('servicos.placeholderNome')}
-          value={form.nome}
-          onChange={(e) => setForm({ ...form, nome: e.target.value })}
+          placeholder={t('servicos.placeholderNomePt')}
+          value={form.nome_pt}
+          onChange={(e) => setForm({ ...form, nome_pt: e.target.value })}
+          required
+        />
+        <input
+          type="text"
+          placeholder={t('servicos.placeholderNomeJa')}
+          value={form.nome_ja}
+          onChange={(e) => setForm({ ...form, nome_ja: e.target.value })}
           required
         />
         <input
@@ -118,7 +132,8 @@ function ServicosManager() {
           {servicos.map((servico) => (
             <li key={servico.id}>
               <div className="lista-servicos-info">
-                <span>{servico.nome}</span>
+                <span>{servico.nome_pt}</span>
+                <span lang="ja">{servico.nome_ja}</span>
                 <span>{t('common.minutes', { count: servico.duracao_minutos })}</span>
                 <span>¥{servico.preco}</span>
               </div>

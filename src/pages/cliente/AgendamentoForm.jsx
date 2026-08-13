@@ -4,6 +4,7 @@ import { listHorariosDisponiveis } from '../../lib/horarios'
 import { criarAgendamento } from '../../lib/agendamentos'
 import { hojeLocal as hoje, formatarDataExibicao } from '../../lib/dateUtils'
 import { gerarLinkWhatsapp } from '../../lib/whatsapp'
+import { nomeServico } from '../../lib/servicos'
 
 function AgendamentoForm({ servicos, barbeiros, perfil }) {
   const { t, i18n } = useTranslation()
@@ -56,7 +57,10 @@ function AgendamentoForm({ servicos, barbeiros, perfil }) {
     try {
       await criarAgendamento({ horarioId, servicoId })
       setConfirmado({
-        servicoNome: servicos.find((s) => s.id === servicoId)?.nome,
+        servicoNome: nomeServico(
+          servicos.find((s) => s.id === servicoId),
+          i18n.language
+        ),
         barbeiroNome: nomeBarbeiro(horario?.barbeiro_id),
         data: horario?.data ?? data,
         horaInicio: horario?.hora_inicio,
@@ -128,7 +132,7 @@ function AgendamentoForm({ servicos, barbeiros, perfil }) {
         <select value={servicoId} onChange={(e) => setServicoId(e.target.value)} required>
           {servicos.map((s) => (
             <option key={s.id} value={s.id}>
-              {s.nome}
+              {nomeServico(s, i18n.language)}
             </option>
           ))}
         </select>

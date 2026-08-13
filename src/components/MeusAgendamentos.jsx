@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cancelarAgendamento, listMeusAgendamentos } from '../lib/agendamentos'
 import { formatarDataExibicao } from '../lib/dateUtils'
+import { nomeServico } from '../lib/servicos'
 
 function MeusAgendamentos() {
   const { t, i18n } = useTranslation()
@@ -66,7 +67,7 @@ function MeusAgendamentos() {
               </span>
             </div>
 
-            <strong>{agendamento.servicos.nome}</strong>
+            <strong>{nomeServico(agendamento.servicos, i18n.language)}</strong>
 
             <dl className="agendamento-detalhes">
               <div>

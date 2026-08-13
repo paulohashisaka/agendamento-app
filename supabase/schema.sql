@@ -3,6 +3,8 @@
 create table servicos (
   id uuid primary key default gen_random_uuid(),
   nome text not null,
+  nome_pt text not null,
+  nome_ja text not null,
   duracao_minutos integer not null,
   preco numeric(10,2) not null
 );

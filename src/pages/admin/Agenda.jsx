@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { listAgendamentos, cancelarAgendamento } from '../../lib/agendamentos'
 import { hojeLocal as hoje } from '../../lib/dateUtils'
+import { nomeServico } from '../../lib/servicos'
 
 function Agenda({ barbeiros, refreshKey = 0 }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [barbeiroId, setBarbeiroId] = useState('')
   const [data, setData] = useState(hoje())
   const [agendamentos, setAgendamentos] = useState([])
@@ -72,7 +73,7 @@ function Agenda({ barbeiros, refreshKey = 0 }) {
             <li key={a.id}>
               <div className="lista-servicos-info">
                 <span>{a.horarios.hora_inicio.slice(0, 5)}</span>
-                <span>{a.servicos.nome}</span>
+                <span>{nomeServico(a.servicos, i18n.language)}</span>
                 <span>{nomeBarbeiro(a.barbeiro_id)}</span>
                 <span>{a.cliente_nome}</span>
                 {a.criado_por_admin && (

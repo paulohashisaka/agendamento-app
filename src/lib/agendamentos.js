@@ -27,7 +27,7 @@ export async function listMeusAgendamentos() {
   const { data, error } = await supabase
     .from('agendamentos')
     .select(
-      'id, status, criado_em, cliente_nome, cliente_telefone, servicos(nome, preco, duracao_minutos), horarios(data, hora_inicio, hora_fim), barbeiros(nome)'
+      'id, status, criado_em, cliente_nome, cliente_telefone, servicos(nome, nome_pt, nome_ja, preco, duracao_minutos), horarios(data, hora_inicio, hora_fim), barbeiros(nome)'
     )
     .order('criado_em', { ascending: false })
 
@@ -43,7 +43,7 @@ export async function listMeusAgendamentos() {
 export async function listAgendamentos({ barbeiroId, data } = {}) {
   let query = supabase
     .from('agendamentos')
-    .select('*, servicos(nome), horarios!inner(data, hora_inicio, hora_fim)')
+    .select('*, servicos(nome, nome_pt, nome_ja), horarios!inner(data, hora_inicio, hora_fim)')
     .eq('status', 'confirmado')
 
   if (barbeiroId) query = query.eq('barbeiro_id', barbeiroId)

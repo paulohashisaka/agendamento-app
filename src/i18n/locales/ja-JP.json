@@ -151,6 +151,8 @@
   "servicos": {
     "titulo": "サービス",
     "placeholderNome": "名前",
+    "placeholderNomePt": "ポルトガル語のサービス名",
+    "placeholderNomeJa": "日本語のサービス名",
     "placeholderDuracao": "所要時間(分)",
     "placeholderPreco": "料金(¥)",
     "loading": "読み込み中..."

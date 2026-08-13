@@ -4,16 +4,23 @@ export async function listServicos() {
   const { data, error } = await supabase
     .from('servicos')
     .select('*')
-    .order('nome')
+    .order('nome_pt')
 
   if (error) throw error
   return data
 }
 
-export async function createServico({ nome, duracao_minutos, preco }) {
+export function nomeServico(servico, idioma = 'pt-BR') {
+  if (!servico) return ''
+  return idioma.startsWith('ja')
+    ? servico.nome_ja || servico.nome_pt || servico.nome
+    : servico.nome_pt || servico.nome_ja || servico.nome
+}
+
+export async function createServico({ nome_pt, nome_ja, duracao_minutos, preco }) {
   const { data, error } = await supabase
     .from('servicos')
-    .insert({ nome, duracao_minutos, preco })
+    .insert({ nome: nome_pt, nome_pt, nome_ja, duracao_minutos, preco })
     .select()
     .single()
 
@@ -21,10 +28,10 @@ export async function createServico({ nome, duracao_minutos, preco }) {
   return data
 }
 
-export async function updateServico(id, { nome, duracao_minutos, preco }) {
+export async function updateServico(id, { nome_pt, nome_ja, duracao_minutos, preco }) {
   const { data, error } = await supabase
     .from('servicos')
-    .update({ nome, duracao_minutos, preco })
+    .update({ nome: nome_pt, nome_pt, nome_ja, duracao_minutos, preco })
     .eq('id', id)
     .select()
     .single()
