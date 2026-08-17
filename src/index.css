@@ -646,6 +646,37 @@ section + section {
   margin-top: 22px;
 }
 
+.auth-confirmation {
+  padding: 30px 8px 24px;
+}
+
+.auth-confirmation p {
+  max-width: 430px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.auth-feedback-success {
+  background: rgba(201, 162, 39, 0.08);
+  box-shadow: 0 0 0 7px rgba(201, 162, 39, 0.04);
+}
+
+.auth-feedback-error {
+  border-color: #b9785b;
+  color: #e3a384;
+}
+
+.auth-feedback-loading {
+  animation: auth-confirmation-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes auth-confirmation-pulse {
+  50% {
+    opacity: 0.45;
+    transform: scale(0.9);
+  }
+}
+
 .auth-gate {
   padding: 24px 20px;
   border: 1px solid var(--color-gold);

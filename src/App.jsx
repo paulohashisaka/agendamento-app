@@ -6,6 +6,7 @@ import LoginPage from './pages/auth/LoginPage'
 import CadastroPage from './pages/auth/CadastroPage'
 import RecuperarSenhaPage from './pages/auth/RecuperarSenhaPage'
 import RedefinirSenhaPage from './pages/auth/RedefinirSenhaPage'
+import ConfirmacaoEmailPage from './pages/auth/ConfirmacaoEmailPage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/cadastro" element={<CadastroPage />} />
       <Route path="/recuperar-senha" element={<RecuperarSenhaPage />} />
       <Route path="/redefinir-senha" element={<RedefinirSenhaPage />} />
+      <Route path="/confirmacao-email" element={<ConfirmacaoEmailPage />} />
       <Route path="/minha-conta" element={<MinhaContaPage />} />
       <Route path="/admin" element={<AdminPage />} />
     </Routes>

@@ -9,6 +9,7 @@ export function signUp({ nome, telefone, email, password }) {
     email,
     password,
     options: {
+      emailRedirectTo: `${window.location.origin}/confirmacao-email`,
       data: {
         nome: nome.trim(),
         telefone: telefone.trim(),
