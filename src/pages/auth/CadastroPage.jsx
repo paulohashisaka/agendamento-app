@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import AuthShell from '../../components/AuthShell'
-import { signUp } from '../../lib/auth'
+import { emailJaCadastrado, signUp } from '../../lib/auth'
 
 function CadastroPage() {
   const { t } = useTranslation()
@@ -45,7 +45,9 @@ function CadastroPage() {
       password: form.password,
     })
 
-    if (authError) {
+    if (emailJaCadastrado(data, authError)) {
+      setError(t('auth.emailAlreadyRegistered'))
+    } else if (authError) {
       setError(t('auth.signupError'))
     } else if (data.session) {
       navigate('/minha-conta', { replace: true })

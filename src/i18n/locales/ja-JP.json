@@ -95,6 +95,7 @@
     "signupButton": "アカウントを作成",
     "signingUp": "作成中...",
     "signupError": "アカウントを作成できませんでした。入力内容またはメールアドレスをご確認ください。",
+    "emailAlreadyRegistered": "このメールアドレスはすでに登録されています。ログインするか、パスワードを再設定してください。",
     "passwordMinLength": "パスワードは6文字以上で入力してください。",
     "passwordMismatch": "パスワードが一致しません。",
     "hasAccount": "すでにアカウントをお持ちですか？",

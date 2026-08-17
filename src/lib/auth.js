@@ -18,6 +18,18 @@ export function signUp({ nome, telefone, email, password }) {
   })
 }
 
+export function emailJaCadastrado(data, error) {
+  const codigo = error?.code?.toLowerCase() || ''
+  const mensagem = error?.message?.toLowerCase() || ''
+  const semNovaIdentidade = data?.user && Array.isArray(data.user.identities)
+    && data.user.identities.length === 0
+
+  return semNovaIdentidade
+    || codigo === 'user_already_exists'
+    || mensagem.includes('already registered')
+    || mensagem.includes('already exists')
+}
+
 export function signOut() {
   return supabase.auth.signOut()
 }

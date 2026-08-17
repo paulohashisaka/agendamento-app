@@ -95,6 +95,7 @@
     "signupButton": "Criar minha conta",
     "signingUp": "Criando conta...",
     "signupError": "Não foi possível criar a conta. Verifique os dados ou tente outro e-mail.",
+    "emailAlreadyRegistered": "Este e-mail já está cadastrado. Entre na sua conta ou use a recuperação de senha.",
     "passwordMinLength": "A senha precisa ter pelo menos 6 caracteres.",
     "passwordMismatch": "As senhas não são iguais.",
     "hasAccount": "Já tem uma conta?",
